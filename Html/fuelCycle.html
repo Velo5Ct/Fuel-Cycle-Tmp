@@ -1,0 +1,104 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html"; charset=UTF-8/>
+<link href='css/bootstrap.min.css' rel='stylesheet' media='screen'>
+<link href='css/jquery-ui.css' rel='stylesheet'>
+<link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
+<link href='css/aux.css' rel='stylesheet'>
+<link href='http://fonts.googleapis.com/css?family=Electrolize' rel='stylesheet' type='text/css'>
+<link href='http://fonts.googleapis.com/css?family=Share+Tech+Mono' rel='stylesheet' type='text/css'>
+<!-- <link rel="stylesheet" href="http://code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css" />-->
+<script src= 'http://code.jquery.com/jquery-latest.js'></script>
+<script src='http://ajax.googleapis.com/ajax/libs/jqueryui/1/jquery-ui.min.js'></script>
+<script src='js/jquery.form.min.js'></script>
+<script src='js/bootstrap.min.js'></script>
+<script src='js/Chart.min.js'></script>
+<script src='js/main.js'></script>
+
+
+</head>
+
+
+<body style="padding-top:45px;padding-left:8px;padding-right:8px">
+
+<!--NAVBAR-->
+<!--
+<div class="navbar navbar-fixed-top navbar-inverse">
+ <div class='navbar-inner'>
+	<ul class='nav'>
+		<li class='active'><a href='#'>Explore</a></li>
+		<li><a datatarget='#' href='explore.htm'>Graphics</a></li>
+		<li><a datatarget='#' href='glossary.htm'>Glossary</a></li>
+	</ul>
+ </div>
+</div> -->
+
+
+<div class="nnav">
+	<ul class="">
+		<li class="">Explore</li>
+		<li class="">Graphics</li>
+		<li class="">Glossary</li>
+	</ul>
+</div>
+
+<div id="topfocus" class="hider"></div>
+<div id='topContent'>
+		<div id="GraphPane" style="display:none;">
+			<div class="centered">
+				<canvas id="fchart1" width="850" height="300" style="border:1px solid black;">
+				Your browser does not support the HTML5 canvas tag.
+				</canvas>
+			
+				<div id="Realizations"></div>
+			</div>
+		</div>
+		<div id="ResultPane" style="display:none;">
+			<div class="container">
+					<div class="textbox white" style="margin-right:70%;">
+						<span class="decoy"></span>
+						<div class="valuebox">
+							<span class="mainValue" id="mainValue"></span>
+							<span class="underValue" id="underValue"></span>
+						</div>
+					</div>
+
+
+			</div>
+
+		</div>
+
+
+</div>
+
+<div class="hider"></div>
+
+<div class="mainContent">
+
+
+	<!-- Form Name -->
+	<form class="form-horizontal" name="fcsubmit" id="fcsubmit" action="fcycle.py" method="POST">
+
+		<div class="pagination">
+			 <ul>
+			 <li class="ld1 active"><a id="loadDeterm" >Deterministic Model</a></li>
+			 <li class="ld2"><a id="loadStochast" >Stochastic Factors</a></li>
+			 </ul>
+		</div>
+
+		<div class="innerContent">
+			<!--tabbed content-->
+			<div id='tabbedContent'></div>
+			
+			<div class="centered">
+				<button class="btn btn-large btn-primary" type="submit" value="Simulate" style="width:400px;">Simulate</button>
+			</div>
+		</div>
+
+	</form>
+
+</div>
+
+</body>
+</html>

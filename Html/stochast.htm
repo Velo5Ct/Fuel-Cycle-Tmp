@@ -1,0 +1,625 @@
+<script src="js/common.js"></script>
+<script src="js/slider.js"></script>
+
+
+<input type="hidden" name="modelType" value="S">
+<div id="tabs">
+<ul>
+<li><a href="#tabs-1">Light Water Reactor</a></li>
+<li><a href="#tabs-2">Fast Reactor</a></li>
+<li><a href="#tabs-3"><i class="fa fa-cogs fa-fw"></i>Settings</a></li>
+</ul>
+
+
+
+
+<div id="tabs-1">
+<div class="row">
+<div class="span6">
+<fieldset>
+<span class="badge">Once-through</span>
+
+<!-- Burnup-->
+<div class="control-group">
+<label class="control-label" for="bu1">Burnup</label>
+<div class="controls">
+<select id="bu1" name="bu1" style="width:95px">
+<option value="33">33</option>
+<option value="43" select="selected">43</option>
+<option value="53">53</option>
+</select>
+</div>	
+</div>
+
+
+<!-- Text input-->
+<div class="control-group">
+<label class="control-label" for="ir">Discount Rate</label>
+<div class="controls form-inline">
+<div id="irslider"></div>
+<input id="ir" name="ir" type="text" placeholder="0.1" class="input-tiny mu_input">
+<span id="irhide" >
+<input type="text" class="input-tiny form-control std_input" placeholder="0.017" id="irstd" name="irstd" >
+</span>
+<select name="irdist"class="" style="width:63px">
+
+<option value="gauss">gauss</option>
+<option value="log">log</option>
+</select>
+</div>
+</div>
+
+
+<!-- Text input-->
+<div class="control-group">
+<label class="control-label" for="cc1">Overnight cost ($/KWe)</label>
+<div class="controls form-inline">
+<div id="cc1slider"></div>
+<input id="cc1" name="cc1" type="text" placeholder="1800" class="input-tiny mu_input">
+<span id="cc1hide" >
+<input type="text" class="input-tiny form-control std_input" placeholder="500" id="cc1std" name="cc1std" >
+</span>
+<select name="cc1dist"class="" style="width:63px">
+
+<option value="gauss">gauss</option>
+<option value="log">log</option>
+</select>
+</div>
+</div>
+
+<!-- Text input-->
+<div class="control-group">
+<label class="control-label" for="com1">Oper&amp;Maint  ($mill/GWe-yr)</label>
+<div class="controls form-inline">
+<div id="com1slider"></div>
+<input id="com1" name="com1" type="text" placeholder="78" class="input-tiny mu_input">
+<span id="com1hide" >
+<input type="text" class="input-tiny form-control std_input" placeholder="7.8" id="com1std" name="com1std" >
+</span>
+<select name="com1dist"class="" style="width:63px">
+
+<option value="gauss">gauss</option>
+<option value="log">log</option>
+</select>
+
+</div>
+</div>
+
+<!-- Text input-->
+<div class="control-group">
+<label class="control-label" for="c1">Uranium Price ($/kgU)</label>
+<div class="controls form-inline">
+<div id="c1slider"></div>
+<input id="c1" name="c1" type="text" placeholder="100" class="input-tiny mu_input">
+<span id="c1hide" >
+<input type="text" class="input-tiny form-control std_input" placeholder="17" id="c1std" name="c1std" >
+</span>
+<select name="c1dist"class="" style="width:63px">
+
+<option value="gauss">gauss</option>
+<option value="log">log</option>
+</select>
+
+</div>
+</div>
+</fieldset>
+
+<fieldset>
+<!-- Text input-->
+<div class="control-group">
+<label class="control-label" for="c2">Conversion ($/kgU)</label>
+<div class="controls form-inline">
+<div id="c2slider"></div>
+<input id="c2" name="c2" type="text" placeholder="11.5" class="input-tiny mu_input">
+<span id="c2hide" >
+<input type="text" class="input-tiny form-control std_input" placeholder="1.7" id="c2std" name="c2std" >
+</span>
+<select name="c2dist"class="" style="width:63px">
+
+<option value="gauss">gauss</option>
+<option value="log">log</option>
+</select>
+</div>
+</div>
+
+<!-- Text input-->
+<div class="control-group">
+<label class="control-label" for="c3">Enrichment ($/SUW)</label>
+<div class="controls form-inline">
+<div id="c3slider"></div>
+<input id="c3" name="c3" type="text" placeholder="115" class="input-tiny mu_input">
+<span id="c3hide" >
+<input type="text" class="input-tiny form-control std_input" placeholder="5.1" id="c3std" name="c3std" >
+</span>
+<select name="c3dist"class="" style="width:63px">
+
+<option value="gauss">gauss</option>
+<option value="log">log</option>
+</select>
+
+</div>
+</div>
+
+<!-- Text input-->
+<div class="control-group">
+<label class="control-label" for="c4">Fuel Fabrication ($/kgHM)</label>
+<div class="controls form-inline">
+<div id="c4slider"></div>
+<input id="c4" name="c4" type="text" placeholder="220" class="input-tiny mu_input">
+<span id="c4hide" >
+<input type="text" class="input-tiny form-control std_input" placeholder="9.2" id="c4std" name="c4std" >
+</span>
+<select name="c4dist"class="" style="width:63px">
+
+<option value="gauss">gauss</option>
+<option value="log">log</option>
+</select>
+
+</div>
+</div>
+
+<!-- Text input-->
+<div class="control-group">
+<label class="control-label" for="c5">SF interim storage ($/kgHM)</label>
+<div class="controls form-inline">
+<div id="c5slider"></div>
+<input id="c5" name="c5" type="text" placeholder="0" class="input-tiny mu_input">
+<span id="c5hide" >
+<input type="text" class="input-tiny form-control std_input" placeholder="0" id="c5std" name="c5std" >
+</span>
+<select name="c5dist"class="" style="width:63px">
+
+<option value="gauss">gauss</option>
+<option value="log">log</option>
+</select>
+
+</div>
+</div>
+
+<!-- Text input-->
+<div class="control-group">
+<label class="control-label" for="cwl">SF Geologic Disposal ($mil/KWe-hr)</label>
+<div class="controls form-inline">
+<div id="cwlslider"></div>
+<input id="cwl" name="cwl" type="text" placeholder="1" class="input-tiny mu_input">
+<span id="cwlhide" >
+<input type="text" class="input-tiny form-control std_input" placeholder="0" id="cwlstd" name="cwlstd" >
+</span>
+<select name="cwldist"class="" style="width:63px">
+
+<option value="gauss">gauss</option>
+<option value="log">log</option>
+</select>
+
+</div>
+</div>
+
+
+<!-- Text input-->
+<div class="control-group">
+<label class="control-label" for="cfpcond">Fissile Product Conditioning($/kgFP)</label>
+<div class="controls form-inline">
+<div id="cfpcondslider"></div>
+<input id="cfpcond" name="cfpcond" type="text" placeholder="5400" class="input-tiny mu_input">
+<span id="cfpcondhide" >
+<input type="text" class="input-tiny form-control std_input" placeholder="1502" id="cfpcondstd" name="cfpcondstd" >
+</span>
+<select name="cfpconddist"class="" style="width:63px">
+
+<option value="gauss">gauss</option>
+<option value="log">log</option>
+</select>
+
+</div>
+</div>
+
+</fieldset>
+</div> <!--end span 6-->
+<div class="span6">
+<fieldset>
+
+
+<div class="control-group">
+<label class="control-label" for="tcons">Construction Time (yrs)</label>
+<div class="controls form-inline">
+<div id="tconsslider"></div>
+<input id="tcons" name="tcons" type="text" placeholder="7" class="input-tiny mu_input">
+<span id="tconshide" >
+<input type="text" class="input-tiny form-control std_input" placeholder="0.7" id="tconsstd" name="tconsstd" >
+</span>
+<select name="tconsdist"class="" style="width:63px">
+
+<option value="gauss">gauss</option>
+<option value="log">log</option>
+</select>
+</div>
+</div>
+
+<!-- Text input-->
+<div class="control-group">
+<label class="control-label" for="tecons">Econ Lifetime (yrs)</label>
+<div class="controls form-inline">
+<div id="teconsslider"></div>
+<input id="tecons" name="tecons" type="text" placeholder="30" class="input-tiny mu_input">
+<span id="teconshide" >
+<input type="text" class="input-tiny form-control std_input" placeholder="3" id="teconsstd" name="teconsstd" >
+</span>
+<select name="teconsdist"class="" style="width:63px">
+
+<option value="gauss">gauss</option>
+<option value="log">log</option>
+</select>
+</div>
+</div>
+
+</fieldset>
+
+
+<fieldset style="width:455px;">
+<!-- Text input-->
+<div class="control-group">
+<label class="control-label" for="cr">Reactor Capacity (MWe/yr)</label>
+<div class="controls">
+<input id="cr" name="cr" type="text" placeholder="1000" class="input-tiny">
+
+</div>
+</div>
+
+<!-- Text input-->
+<div class="control-group">
+<label class="control-label" for="cf1">Capacity Factor</label>
+<div class="controls">
+<input id="cf1" name="cf1" type="text" placeholder="0.9" class="input-tiny">
+
+</div>
+</div>
+
+<!-- Text input-->
+<div class="control-group">
+<label class="control-label" for="eff1">Thermal Efficiency</label>
+<div class="controls">
+<input id="eff1" name="eff1" type="text" placeholder="0.32" class="input-tiny">
+
+</div>
+</div>
+
+<!-- Text input-->
+<div class="control-group">
+<label class="control-label" for="lwrinv">Inventory (kgHM/MWe)</label>
+<div class="controls">
+<input id="lwrinv" name="lwrinv" type="text" placeholder="78" class="input-tiny">
+
+</div>
+</div>
+
+<!-- Text input-->
+<div class="control-group">
+<label class="control-label" for="fff">Fabrication Loss</label>
+<div class="controls">
+<input id="fff" name="fff" type="text" placeholder="0.01" class="input-tiny">
+
+</div>
+</div>
+
+<!-- Text input-->
+<div class="control-group">
+<label class="control-label" for="fswu">Enrichment Loss</label>
+<div class="controls">
+<input id="fswu" name="fswu" type="text" placeholder="0.005" class="input-tiny">
+
+</div>
+</div>
+
+<!-- Text input-->
+<div class="control-group">
+<label class="control-label" for="fcon">Conversion Loss</label>
+<div class="controls">
+<input id="fcon" name="fcon" type="text" placeholder="0.005" class="input-tiny">
+
+</div>
+</div>
+
+<!-- Text input-->
+<div class="control-group">
+<label class="control-label" for="xf">Feed Enrichment</label>
+<div class="controls">
+<input id="xf" name="xf" type="text" placeholder="0.00711" class="input-small">
+
+</div>
+</div>
+
+<!-- Text input-->
+<div class="control-group">
+<label class="control-label" for="xw">Tails Enrichment</label>
+<div class="controls">
+<input id="xw" name="xw" type="text" placeholder="0.003" class="input-small">
+
+</div>
+</div>
+
+
+
+</fieldset>
+</div>
+</div> <!--end row-->
+
+<div class="panel">
+<span class="badge badge-warning">LWR Recycle</span>
+
+<div class="row">
+<div class="span4">
+
+<div class="control-group">
+<label class="control-label" for="bu3">MOX Burnup</label>
+<div class="controls">
+<select id="bu3" name="bu3" style="width:95px">
+<option value="33" disabled>33</option>
+<option value="43" select="selected">43</option>
+<option value="53">53</option>
+</select>
+</div>	
+</div>
+
+<!-- Text input-->
+<div class="control-group">
+<label class="control-label" for="fmoxpu">Fuel Fab. Loss</label>
+<div class="controls form-inline">
+<div id="fmoxpuslider"></div>
+<input id="fmoxpu" name="fmoxpu" type="text" placeholder="0.05" class="input-tiny">
+</div>
+</div>
+
+</div><!--end span4-->
+
+
+<div class="span6">
+
+<!-- Text input-->
+<div class="control-group">
+<label class="control-label" for="cb1">Fuel Fab. Cost ($/kgHM)</label>
+<div class="controls form-inline">
+<div id="cb1slider"></div>
+<input id="cb1" name="cb1" type="text" placeholder="1800" class="input-tiny mu_input">
+<span id="cb1hide" >
+<input type="text" class="input-tiny form-control std_input" placeholder="180" id="cb1std" name="cb1std" >
+</span>
+<select name="cb1dist"class="" style="width:63px">
+
+<option value="gauss">gauss</option>
+<option value="log">log</option>
+</select>
+</div>
+</div>
+
+</div><!--end span6-->
+
+</div><!--end row-->
+
+</div><!--end panel-->
+
+
+
+</div> <!--end tabs-1-->
+
+
+
+
+
+
+
+<!--  NEW TAB       -->
+
+
+
+
+
+<div id="tabs-2">
+
+<div class="row">
+<div class="span6">
+<fieldset>
+
+<!-- Burnup-->
+<div class="control-group">
+<label class="control-label" for="bu2">Burnup</label>
+<div class="controls">
+<select id="bu2" name="bu2" style="width:95px">
+<option value="100">100</option>
+<option value="150">150</option>
+</select>
+</div>	
+</div>
+
+<div class="control-group">
+<label class="control-label" for="cs">Spent LEU Reprocessing </label>
+<div class="controls form-inline">
+<div id="csslider"></div>
+<input id="cs" name="cs" type="text" placeholder="502" class="input-tiny mu_input">
+<span id="cshide">
+<input type="text" class="input-tiny form-control std_input" placeholder="63" id="csstd" name="csstd">
+</span>
+<select name="csdist" style="width:63px">
+<option value="gauss">gauss</option>
+<option value="log">log</option>
+</select>
+</div>
+</div>
+
+
+<div class="control-group">
+<label class="control-label" for="com2">Oper.&nbsp;&amp;&nbsp;Maint. ($M/GWe-yr)</label>
+<div class="controls form-inline">
+<div id="com2slider"></div>
+<input id="com2" name="com2" type="text" placeholder="70" class="input-tiny mu_input">
+<span id="com2hide">
+<input type="text" class="input-tiny form-control std_input" placeholder="7" id="com2std" name="com2std">
+</span>
+<select name="com2dist" style="width:63px">
+<option value="gauss">gauss</option>
+<option value="log">log</option>
+</select>
+</div>
+</div>
+
+<div class="control-group">
+<label class="control-label" for="cc2">Overnight Cost</label>
+<div class="controls form-inline">
+<div id="cc2slider"></div>
+<input id="cc2" name="cc2" type="text" placeholder="2000" class="input-tiny mu_input">
+<span id="cc2hide">
+<input type="text" class="input-tiny form-control std_input" placeholder="410" id="cc2std" name="cc2std">
+</span>
+<select name="cc2dist" style="width:63px">
+<option value="gauss">gauss</option>
+<option value="log">log</option>
+</select>
+</div>
+</div>
+
+</fieldset>
+<fieldset>
+
+<div class="control-group">
+<label class="control-label" for="rb">HLW Disposal ($/kgHM)</label>
+<div class="controls form-inline">
+<div id="rbslider"></div>
+<input id="rb" name="rb" type="text" placeholder="211" class="input-tiny mu_input">
+<span id="rbhide">
+<input type="text" class="input-tiny form-control std_input" placeholder="35" id="rbstd" name="rbstd">
+</span>
+<select name="rbdist" style="width:63px">
+<option value="gauss">gauss</option>
+<option value="log">log</option>
+</select>
+</div>
+</div>
+
+
+<div class="control-group">
+<label class="control-label" for="fr1">Fuel Reproc. Cost ($/kgHM)</label>
+<div class="controls form-inline">
+<div id="fr1slider"></div>
+<input id="fr1" name="fr1" type="text" placeholder="2700" class="input-tiny mu_input">
+<span id="fr1hide">
+<input type="text" class="input-tiny form-control std_input" placeholder="552" id="fr1std" name="fr1std">
+</span>
+<select name="fr1dist" style="width:63px">
+<option value="gauss">gauss</option>
+<option value="log">log</option>
+</select>
+</div>
+</div>
+
+<div class="control-group">
+<label class="control-label" for="ff1">Fuel Fab. Cost ($/kgHM)</label>
+<div class="controls form-inline">
+<div id="ff1slider"></div>
+<input id="ff1" name="ff1" type="text" placeholder="1800" class="input-tiny mu_input">
+<span id="ff1hide">
+<input type="text" class="input-tiny form-control std_input" placeholder="180" id="ff1std" name="ff1std">
+</span>
+<select name="ff1dist" style="width:63px">
+<option value="gauss">gauss</option>
+<option value="log">log</option>
+</select>
+</div>
+</div>
+</div><!--end span6-->
+
+<div class="span5">
+
+<fieldset style="width:400px;">
+<!-- Text input-->
+<div class="control-group">
+<label class="control-label" for="cf2">Capacity Factor</label>
+<div class="controls">
+<input id="cf2" name="cf2" type="text" placeholder="0.9" class="input-mini">
+
+</div>
+</div>
+
+<!-- Text input-->
+<div class="control-group">
+<label class="control-label" for="eff2">FR Thermal Efficiency</label>
+<div class="controls">
+<input id="eff1" name="eff1" type="text" placeholder="0.38" class="input-mini">
+</div>
+</div>
+
+<!-- Text input-->
+<div class="control-group">
+<label class="control-label" for="fdrvpu">Loss of TRU (fabrication)</label>
+<div class="controls">
+<input id="fdrvpu" name="fdrvpu" type="text" placeholder="0.005" class="input-mini">
+</div>
+</div>
+
+<!-- Text input-->
+<div class="control-group">
+<label class="control-label" for="frdrvpu">Loss of TRU (reprocess)</label>
+<div class="controls">
+<input id="frdrvpu" name="frdrvpu" type="text" placeholder="0.005" class="input-mini">
+</div>
+</div>
+
+
+<!-- Text input-->
+<div class="control-group">
+<label class="control-label" for="freppu">Loss of TRU (LEU reprocess)</label>
+<div class="controls">
+<input id="freppu" name="freppu" type="text" placeholder="0.005" class="input-mini">
+</div>
+</div>
+
+<div class="control-group">
+<label class="control-label" for="frtruinv">TRU inventory (MT TRU/GWe)</label>
+<div class="controls">
+<input id="frtruinv" name="frtruinv" type="text" placeholder="7.5" class="input-mini">
+</div>
+</div>
+
+<div class="control-group">
+<label class="control-label" for="frcr">Conversion Ratio</label>
+<div class="controls">
+<select id="frcr" name="frcr" style="width:95px">
+<option value="0">0</option>
+<option value="0.25">0.25</option>
+<option value="0.50">0.50</option>
+<option value="0.75">0.75</option>
+<option value="0.99">0.99</option>
+</select>
+</div>	
+</div>
+
+
+</fieldset>
+
+</div><!--end span5-->
+
+
+</div> <!--end row-->
+
+</div> <!-- end tabs-2-->
+
+
+<!-- MODEL PARAMETERS TAB-->
+
+<div id="tabs-3">
+
+<div class="panel">
+
+<div class="control-group">
+<label class="control-label" for="nrealize">Number of realizations</label>
+<div class="controls form-inline">
+<div id="nrealizeslider"></div>
+<input id="nrealize" name="nrealize" type="text" placeholder="500" class="input-small reg_input">
+</div>
+</div>
+
+
+
+
+</div> <!--end panel -->
+</div> <!--end tabs-3 -->
+
+</div> <!--end tabs-->
